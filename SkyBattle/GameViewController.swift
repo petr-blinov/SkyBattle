@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
             scoreLabel.text = "Score: \(score)"
         }
     }
-    /// The ship which is present on the sene
+    /// The ship which is present on the scene
     var ship: SCNNode?
     
     
@@ -117,6 +117,8 @@ class GameViewController: UIViewController {
         
         // retrieve the ship node
         let ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
+        
+        // And delete it, because we will use another one instead of this one
         ship.removeFromParentNode()
         
         // retrieve the SCNView
@@ -170,7 +172,7 @@ class GameViewController: UIViewController {
             
             // highlight it
             SCNTransaction.begin()
-            SCNTransaction.animationDuration = 0.1
+            SCNTransaction.animationDuration = 0.005
             
             
             // MARK: KILL THE PLANE
